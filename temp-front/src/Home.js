@@ -16,20 +16,7 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 
 import Navigation from './Navigation';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>
-      {' '}
-      {new Date().getFullYear()}
-      .
-    </Typography>
-  );
-}
+import Footer from './Footer';
 
 const tiers = [
   {
@@ -71,31 +58,6 @@ const tiers = [
   },
 ];
 
-const footers = [
-  {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
-  },
-  {
-    title: 'Features',
-    description: [
-      'Cool stuff',
-      'Random feature',
-      'Team feature',
-      'Developer stuff',
-      'Another one',
-    ],
-  },
-  {
-    title: 'Resources',
-    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
-  },
-  {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-  },
-];
-
 function Home() {
   return (
     <>
@@ -112,108 +74,71 @@ function Home() {
             color="text.primary"
             gutterBottom
           >
-            Pricing
+            Looking for someone to talk to?
           </Typography>
           <Typography variant="h5" align="center" color="text.secondary" component="p">
-            Quickly build an effective pricing table for your potential customers with
-            this layout. It&apos;s built with default MUI components with little
-            customization.
+            Slogan slogan slogan. With our service blah blah You get to ??? ??? ??? What's unique to us is that asd asd asd asd
           </Typography>
         </Container>
         {/* End hero unit */}
         <Container maxWidth="md" component="main">
-          <Grid container spacing={5} alignItems="flex-end">
-            {tiers.map((tier) => (
-              // Enterprise card is full width at sm breakpoint
-              <Grid
-                item
-                key={tier.title}
-                xs={12}
-                sm={tier.title === 'Enterprise' ? 12 : 6}
-                md={4}
-              >
-                <Card>
-                  <CardHeader
-                    title={tier.title}
-                    subheader={tier.subheader}
-                    titleTypographyProps={{ align: 'center' }}
-                    action={tier.title === 'Pro' ? <StarIcon /> : null}
-                    subheaderTypographyProps={{
-                      align: 'center',
-                    }}
-                    sx={{
-                      backgroundColor: (theme) => (theme.palette.mode === 'light'
-                        ? theme.palette.grey[200]
-                        : theme.palette.grey[700]),
-                    }}
-                  />
-                  <CardContent>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'baseline',
-                        mb: 2,
-                      }}
-                    >
-                      <Typography component="h2" variant="h3" color="text.primary">
-                        $
-                        {tier.price}
-                      </Typography>
-                      <Typography variant="h6" color="text.secondary">
-                        /mo
-                      </Typography>
-                    </Box>
-                    <ul>
-                      {tier.description.map((line) => (
-                        <Typography
-                          component="li"
-                          variant="subtitle1"
-                          align="center"
-                          key={line}
-                        >
-                          {line}
-                        </Typography>
-                      ))}
-                    </ul>
-                  </CardContent>
-                  <CardActions>
-                    <Button fullWidth variant={tier.buttonVariant}>
-                      {tier.buttonText}
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-        {/* Footer */}
-        <Container
-          maxWidth="md"
-          component="footer"
-          sx={{
-            borderTop: (theme) => `1px solid ${theme.palette.divider}`,
-            mt: 8,
-            py: [3, 6],
-          }}
-        >
-          <Grid container spacing={4} justifyContent="space-evenly">
-            {footers.map((footer) => (
-              <Grid item xs={6} sm={3} key={footer.title}>
-                <Typography variant="h6" color="text.primary" gutterBottom>
-                  {footer.title}
-                </Typography>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+          >
+            <Card>
+              <CardHeader
+                title="title"
+                subheader="subheader"
+                titleTypographyProps={{ align: 'center' }}
+                action={<StarIcon />}
+                subheaderTypographyProps={{
+                  align: 'center',
+                }}
+                sx={{
+                  backgroundColor: (theme) => (theme.palette.mode === 'light'
+                    ? theme.palette.grey[200]
+                    : theme.palette.grey[700]),
+                }}
+              />
+              <CardContent>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'baseline',
+                    mb: 2,
+                  }}
+                >
+                  <Typography component="h2" variant="h3" color="text.primary">
+                    $69
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary">
+                    /mo
+                  </Typography>
+                </Box>
                 <ul>
-                  {footer.description.map((item) => (
-                    <li key={item} />
-                  ))}
+                  <Typography
+                    component="li"
+                    variant="subtitle1"
+                    align="center"
+                    key="asd"
+                  >
+                    asd
+                  </Typography>
                 </ul>
-              </Grid>
-            ))}
+              </CardContent>
+              <CardActions>
+                <Button fullWidth variant="outlined">
+                  lol
+                </Button>
+              </CardActions>
+            </Card>
           </Grid>
-          <Copyright sx={{ mt: 5 }} />
         </Container>
-        {/* End footer */}
+        <Footer />
       </>
     </>
   );
