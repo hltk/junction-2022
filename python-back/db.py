@@ -73,9 +73,7 @@ def get_messages():
       res[other].append(formatted)
     else:
       res[other] = [formatted]
-
-  print(res)
-
+      
   return res
 
 def identity(payload):
