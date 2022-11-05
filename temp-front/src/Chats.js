@@ -1,16 +1,13 @@
 import React from 'react';
 
-import Navigation from './Navigation';
-import Footer from './Footer';
+import Page from './Page';
 
 function Chats() {
   return (
-    <>
-      <Navigation />
+    <Page>
       <p>Chats page</p>
-      <ul><li><a href="/chat">a chat</a></li></ul>
-      <Footer />
-    </>
+      <ul><li><a href="/chat/react">chat to react</a></li></ul>
+    </Page>
   );
 }
 
