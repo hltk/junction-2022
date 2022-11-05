@@ -129,10 +129,13 @@ function Chat() {
                     value={messageBody}
                     onChange={(e) => setMessageBody(e.target.value)}
                     required
+                    sx={{ paddingRight: '10px', height: '2em' }}
                   />
                   <Button
                     disabled={!isConnectionOpen}
                     type="submit"
+                    variant="outlined"
+                    size="medium"
                   >
                     send
                   </Button>
