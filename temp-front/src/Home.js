@@ -29,6 +29,7 @@ function Home() {
           variant="h2"
           align="center"
           color="text.primary"
+          fontWeight="600"
           gutterBottom
         >
           Looking for someone to talk to?
@@ -50,7 +51,6 @@ function Home() {
               title="title"
               subheader="subheader"
               titleTypographyProps={{ align: 'center' }}
-              action={<StarIcon />}
               subheaderTypographyProps={{
                 align: 'center',
               }}
@@ -68,14 +68,7 @@ function Home() {
                   alignItems: 'baseline',
                   mb: 2,
                 }}
-              >
-                <Typography component="h2" variant="h3" color="text.primary">
-                  $69
-                </Typography>
-                <Typography variant="h6" color="text.secondary">
-                  /mo
-                </Typography>
-              </Box>
+              />
               <ul>
                 <Typography
                   component="li"
@@ -89,7 +82,7 @@ function Home() {
             </CardContent>
             <CardActions>
               <Button fullWidth variant="outlined">
-                lol
+                Start chatting
               </Button>
             </CardActions>
           </Card>

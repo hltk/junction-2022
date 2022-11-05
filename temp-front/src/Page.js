@@ -1,46 +1,55 @@
-import React, { useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-
-import CardHeader from '@mui/material/CardHeader';
-import CssBaseline from '@mui/material/CssBaseline';
-import StarIcon from '@mui/icons-material/StarBorder';
-import Toolbar from '@mui/material/Toolbar';
-import Link from '@mui/material/Link';
-import GlobalStyles from '@mui/material/GlobalStyles';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Footer from './Footer';
 import Navigation from './Navigation';
 
+export const themeOptions = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#a21719',
+      dark: '#860408',
+      light: '#c0291e',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+    background: {
+      default: '#580000',
+      paper: '#690508',
+    },
+  },
+  typography: {
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightBold: 700,
+    fontWeightMedium: 600,
+    fontFamily: '"Fira Sans", "Helvetica", "Arial", sans-serif',
+  },
+});
+
 function Page({ children }) {
   return (
-    <Grid
-      style={{ minHeight: '100%' }}
-    >
-      <Navigation />
+    <ThemeProvider theme={themeOptions}>
       <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
+        style={{ minHeight: '100%' }}
       >
-        { children }
+        <Navigation />
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          { children }
+        </Grid>
+        <Footer />
       </Grid>
-      <Footer />
-    </Grid>
+    </ThemeProvider>
   );
 }
 
