@@ -151,6 +151,28 @@ function Home() {
         <img src="m1.png" style={{ width: '60%' }} alt="chat window." />
       </Container>
 
+      <Box mt={25} />
+
+      <Typography
+        component="h1"
+        variant="h2"
+        align="center"
+        color="text.primary"
+        fontWeight="600"
+        gutterBottom
+      >
+        Are you ready for a taboo-free conversation?
+      </Typography>
+
+      <Box sx={{
+        width: '100%', display: 'flex', justifyContent: 'center',
+      }}
+      >
+        <Button href="/chat" size="large" variant="contained" color="secondary">
+          Start chatting!
+        </Button>
+      </Box>
+
     </Page>
   );
 }
