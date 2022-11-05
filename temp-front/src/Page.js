@@ -3,6 +3,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, Container } from '@mui/system';
 import Footer from './Footer';
 import Navigation from './Navigation';
 
@@ -10,7 +11,7 @@ export const themeOptions = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#a21719',
+      main: '#dc4c4b',
       dark: '#860408',
       light: '#c0291e',
     },
@@ -45,7 +46,7 @@ function Page({ children }) {
           alignItems="center"
           justifyContent="center"
         >
-          { children }
+          <Box width="60em" maxWidth="93%">{ children }</Box>
         </Grid>
         <Footer />
       </Grid>

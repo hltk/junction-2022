@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 
 import CardHeader from '@mui/material/CardHeader';
 import CssBaseline from '@mui/material/CssBaseline';
+
+import TextField from '@mui/material/TextField';
 import StarIcon from '@mui/icons-material/StarBorder';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
@@ -20,6 +22,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { red } from '@mui/material/colors';
+
+import {
+  Avatar,
+  IconButton,
+  Collapse,
+} from '@mui/material';
 
 import Page from './Page';
 
@@ -73,45 +87,71 @@ function Chat() {
       ws.current.close();
     };
   }, []);
+
   return (
     <Page>
-      <p>Chat page</p>
-      <Grid>
-        <Card
-          sx={{ width: '100%' }}
-        >
-          <CardContent sx={{ flexGrow: 1 }}>
-            <Typography gutterBottom variant="h5" component="h2">
-              Messages
-            </Typography>
-            <Typography>
-              This is a media card. You can use this section to describe the
-              content.
-            </Typography>
-
-            <ul>{messages.map((mess) => <li>{mess}</li>)}</ul>
-            <form onSubmit={sendMessage}>
-              <input
-                type="text"
-                placeholder="Type your message here..."
-                value={messageBody}
-                onChange={(e) => setMessageBody(e.target.value)}
-                required
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Box width="40em" maxWidth="100%">
+          <Grid sx={{ padding: '5px' }}>
+            <Card sx={{ width: '100%' }}>
+              <CardHeader
+                avatar={(
+                  <Avatar aria-label="recipe">
+                    RS
+                    {/* FIXME */}
+                  </Avatar>
+            )}
+                action={(
+                  <IconButton aria-label="settings">
+                    <MoreVertIcon />
+                  </IconButton>
+            )}
+                title={receiver}
+                subheader={<i>... is looking for someone to chat with about his problems regarding...</i>}
               />
-              <button
-                disabled={!isConnectionOpen}
-                type="submit"
-              >
-                send
-              </button>
-            </form>
-          </CardContent>
+              <CardMedia
+                image="https://material-ui.com/static/images/cards/paella.jpg"
+                title="Paella dish"
+              />
+              <CardContent>
+                <ul>{messages.map((mess) => <li key={mess}>{mess}</li>)}</ul>
 
-          {/* <CardActions>
-              <Button size="small">View</Button>
-              <Button size="small">Edit</Button>
-                </CardActions> */}
-        </Card>
+                <form onSubmit={sendMessage}>
+                  <TextField
+                    type="text"
+                    placeholder="Type your message here..."
+                    value={messageBody}
+                    onChange={(e) => setMessageBody(e.target.value)}
+                    required
+                    sx={{ paddingRight: '10px', height: '2em' }}
+                  />
+                  <Button
+                    disabled={!isConnectionOpen}
+                    type="submit"
+                    variant="outlined"
+                    size="medium"
+                  >
+                    send
+                  </Button>
+                </form>
+              </CardContent>
+              <CardActions disableSpacing>
+                <IconButton aria-label="add to favorites">
+                  <FavoriteIcon />
+                </IconButton>
+                <IconButton aria-label="share">
+                  <ShareIcon />
+                </IconButton>
+              </CardActions>
+            </Card>
+          </Grid>
+        </Box>
       </Grid>
     </Page>
   );
