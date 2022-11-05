@@ -11,6 +11,7 @@ import Grid from '@mui/material/Grid';
 import StarIcon from '@mui/icons-material/StarBorder';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
@@ -21,7 +22,7 @@ import Page from './Page';
 const cards = [
   {
     reason: 'Secure',
-    image: 's.png',
+    image: 'l.png',
     explanation: 'End-to-end encyption.',
   },
   {
@@ -31,20 +32,20 @@ const cards = [
   },
   {
     reason: 'Anonymous',
-    image: 's.png',
+    image: 'a.png',
     explanation: 'Your identity is known to no one.',
   }, {
     reason: 'Social',
-    image: 's.png',
+    image: 'r.png',
     explanation: 'Your identity is known to no one.',
   },
   {
     reason: 'Easy-to-relate',
-    image: 's.png',
+    image: 'p.png',
     explanation: 'You get to talk to people with similar problems.',
   }, {
     reason: 'Fast',
-    image: 's.png',
+    image: 'h.png',
     explanation: 'Our chat is fast and lightweight.',
   },
 ];
@@ -95,19 +96,17 @@ function Home() {
       <Container sx={{ py: 8 }} maxWidth="md">
         <Grid container spacing={4}>
           {cards.map((card) => (
-            <Grid item key={card} xs={12} sm={6} md={4}>
+            <Grid item key={card.reason} xs={12} sm={6} md={4}>
               <Card
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
               >
-                <CardMedia
-                  component="img"
-                  sx={{
-                    p: '5px',
-                    flexGrow: 1,
-                  }}
-                  image={card.image}
-                  alt="random"
-                />
+                <Box sx={{
+                  width: '100%', display: 'flex', justifyContent: 'center', py: 2,
+                }}
+                >
+                  <img style={{ height: '8em' }} src={card.image} />
+                </Box>
+                <Divider />
                 <CardContent sx={{ flexGrow: 5 }}>
                   <Typography gutterBottom variant="h5" component="h2">
                     {card.reason}
