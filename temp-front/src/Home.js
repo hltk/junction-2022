@@ -122,6 +122,16 @@ function Home() {
         </Grid>
       </Container>
 
+      <Box mt={15} />
+
+      <Container style={{ width: '100%', display: 'flex' }}>
+        <img src="m1.png" style={{ width: '60%', paddingRight: '50px' }} />
+        <Box>
+          <Typography style={{ fontWeight: 600, fontSize: '25px' }}>Punchline</Typography>
+          <Typography variant="secondary">We provide a variety of ...</Typography>
+        </Box>
+      </Container>
+
     </Page>
   );
 }
