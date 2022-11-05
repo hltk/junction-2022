@@ -74,11 +74,13 @@ def get_messages():
     else:
       res[other] = [formatted]
 
-  print(res)
-
   return res
 
 def identity(payload):
   return payload["identity"]
+
+@app.route("/")
+def index():
+  return "Hello"
 
 jwt = JWT(app, authenticate, identity)

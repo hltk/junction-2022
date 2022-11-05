@@ -2,8 +2,6 @@ FROM node:16
 
 WORKDIR /usr/src/app
 
-# VOLUME . /usr/src/app
-
 # Setup
 COPY package* ./
 RUN npm i
