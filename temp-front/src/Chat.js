@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 function Chat() {
   const [messages, setMessages] = React.useState([]);
@@ -73,6 +74,7 @@ function Chat() {
           send
         </button>
       </form>
+      <Footer />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 function Chats() {
   return (
@@ -8,6 +9,7 @@ function Chats() {
       <Navigation />
       <p>Chats page</p>
       <ul><li><a href="/chat">a chat</a></li></ul>
+      <Footer />
     </>
   );
 }
