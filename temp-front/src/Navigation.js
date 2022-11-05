@@ -40,7 +40,7 @@ function Navigation() {
             }}
           >
             <LinkItem name="Home" url="/" />
-            <LinkItem name="Start a chat" url="/" />
+            <LinkItem name="Start a chat" url="/chat" />
             <LinkItem name="Chats" url="/chats" />
             <Box sx={{ float: 'right' }}>
               <Button href="/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
