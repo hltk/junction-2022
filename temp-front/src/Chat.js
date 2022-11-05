@@ -1,10 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import Navigation from "./Navigation";
+import Navigation from './Navigation';
 
-
-const Chat = () => {
-    return <><Navigation /><p>Chat page</p></>
+function Chat() {
+  return (
+    <>
+      <Navigation />
+      <p>Chat page</p>
+    </>
+  );
 }
 
-export default Chat
+export default Chat;
