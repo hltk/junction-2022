@@ -28,13 +28,28 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { red } from '@mui/material/colors';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
+import List from '@mui/material/List';
+import ListSubheader from '@mui/material/ListSubheader';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import SendIcon from '@mui/icons-material/Send';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import StarBorder from '@mui/icons-material/StarBorder';
+import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 
 import {
   Avatar,
   IconButton,
-  Collapse,
 } from '@mui/material';
 
+import { CompressOutlined } from '@mui/icons-material';
 import Page from './Page';
 
 function Chat() {
@@ -98,59 +113,98 @@ function Chat() {
         justifyContent="center"
       >
         <Box width="40em" maxWidth="100%">
-          <Grid sx={{ padding: '5px' }}>
-            <Card sx={{ width: '100%' }}>
-              <CardHeader
-                avatar={(
-                  <Avatar aria-label="recipe">
-                    RS
-                    {/* FIXME */}
-                  </Avatar>
+          <Card sx={{ width: '100%', marginBottom: '1em', color: 'secondary.main' }}>
+            <Button sx={{ margin: '10px' }} href="/chats" variant="outlined" startIcon={<ArrowBackIcon />}>
+              Back to chats
+            </Button>
+          </Card>
+          <Card sx={{ width: '100%' }}>
+            <CardHeader
+              avatar={(
+                <Avatar aria-label="recipe">
+                  RS
+                  {/* FIXME */}
+                </Avatar>
             )}
-                action={(
-                  <IconButton aria-label="settings">
-                    <MoreVertIcon />
-                  </IconButton>
+              action={(
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
             )}
-                title={receiver}
-                subheader={<i>... is looking for someone to chat with about his problems regarding...</i>}
-              />
-              <CardMedia
-                image="https://material-ui.com/static/images/cards/paella.jpg"
-                title="Paella dish"
-              />
-              <CardContent>
-                <ul>{messages.map((mess) => <li key={mess}>{mess}</li>)}</ul>
+              title={receiver}
+              subheader={<i>... is looking for someone to chat with about his problems regarding...</i>}
+            />
+            <CardContent style={{ paddingTop: 0, marginTop: 0 }}>
+              <Card style={{
+                overflowY: 'auto', height: 'min(40em,50vh)', background: '#00000044', marginBottom: 20,
+              }}
+              >
 
-                <form onSubmit={sendMessage}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                  }}
+                >
+                  <Card style={{
+                    minWidth: '10em', maxWidth: '70%', margin: '10px', padding: '3px',
+                  }}
+                  >
+                    message dasdadhsakjdsajkdhaskdjsahd asjkhd sakjd hsa dasdadhsakjdsajkdhaskdjsahd
+                  </Card>
+                  {' '}
+
+                </Box>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                  }}
+                >
+                  <Card style={{
+                    minWidth: '10em', maxWidth: '70%', margin: '10px', padding: '3px',
+                  }}
+                  >
+                    message
+                  </Card>
+                </Box>
+              </Card>
+              <form onSubmit={sendMessage}>
+
+                <Box sx={{
+                  width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center',
+                }}
+                >
+
                   <TextField
                     type="text"
                     placeholder="Type your message here..."
                     value={messageBody}
                     onChange={(e) => setMessageBody(e.target.value)}
                     required
-                    sx={{ paddingRight: '10px', height: '2em' }}
+                    sx={{ paddingRight: '10px', flexGrow: 1 }}
                   />
                   <Button
                     disabled={!isConnectionOpen}
                     type="submit"
                     variant="outlined"
-                    size="medium"
+                    size="large"
                   >
                     send
                   </Button>
-                </form>
-              </CardContent>
-              <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                  <ShareIcon />
-                </IconButton>
-              </CardActions>
-            </Card>
-          </Grid>
+                </Box>
+
+              </form>
+            </CardContent>
+            <CardActions disableSpacing>
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton>
+            </CardActions>
+          </Card>
         </Box>
       </Grid>
     </Page>

@@ -94,7 +94,7 @@ function Home() {
         Our platform is
       </Typography>
 
-      <Container sx={{ py: 8 }} maxWidth="md">
+      <Container sx={{ py: 2 }} maxWidth="md">
         <Grid container spacing={4}>
           {cards.map((card) => (
             <Grid item key={card.reason} xs={12} sm={6} md={4}>
@@ -122,13 +122,18 @@ function Home() {
         </Grid>
       </Container>
 
-      <Box mt={15} />
+      <Box mt={20} />
 
       <Container style={{ width: '100%', display: 'flex' }}>
-        <img src="m1.png" style={{ width: '60%', paddingRight: '50px' }} />
+        <img
+          src="m1.png"
+          style={{
+            width: '60%', paddingRight: '50px',
+          }}
+        />
         <Box>
-          <Typography style={{ fontWeight: 600, fontSize: '25px' }}>Punchline</Typography>
-          <Typography variant="secondary">We provide a variety of ...</Typography>
+          <Typography style={{ fontWeight: 600, fontSize: '35px' }}>Punchline</Typography>
+          <Typography sx={{ color: 'primary.main' }}>We provide a variety of ...</Typography>
         </Box>
       </Container>
 
