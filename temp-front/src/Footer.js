@@ -50,7 +50,7 @@ function Footer() {
       sx={{
         borderTop: (theme) => `1px solid ${theme.palette.divider}`,
         mt: 8,
-        py: [3, 6],
+        p: [0, 0, 3, 0],
       }}
     >
       <Grid container spacing={4} justifyContent="space-evenly">
