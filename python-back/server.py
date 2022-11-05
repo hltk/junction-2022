@@ -34,7 +34,7 @@ async def handle(websocket):
     except websockets.exceptions.ConnectionClosed:
         sockets.remove(user)
 
-start_server = websockets.serve(handle, "localhost", 5000)
+start_server = websockets.serve(handle, "localhost", 5001)
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
