@@ -1,7 +1,27 @@
 import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import Navigation from './Navigation';
-import Footer from './Footer';
+
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+
+import CardHeader from '@mui/material/CardHeader';
+import CssBaseline from '@mui/material/CssBaseline';
+import StarIcon from '@mui/icons-material/StarBorder';
+import Toolbar from '@mui/material/Toolbar';
+import Link from '@mui/material/Link';
+import GlobalStyles from '@mui/material/GlobalStyles';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import CameraIcon from '@mui/icons-material/PhotoCamera';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+
+import Page from './Page';
 
 function Chat() {
   const [messages, setMessages] = React.useState([]);
@@ -54,28 +74,46 @@ function Chat() {
     };
   }, []);
   return (
-    <>
-      <Navigation />
+    <Page>
       <p>Chat page</p>
-      <p><i>messages:</i></p>
-      <ul>{messages.map((mess) => <li>{mess}</li>)}</ul>
-      <form onSubmit={sendMessage}>
-        <input
-          type="text"
-          placeholder="Type your message here..."
-          value={messageBody}
-          onChange={(e) => setMessageBody(e.target.value)}
-          required
-        />
-        <button
-          disabled={!isConnectionOpen}
-          type="submit"
+      <Grid>
+        <Card
+          sx={{ width: '100%' }}
         >
-          send
-        </button>
-      </form>
-      <Footer />
-    </>
+          <CardContent sx={{ flexGrow: 1 }}>
+            <Typography gutterBottom variant="h5" component="h2">
+              Messages
+            </Typography>
+            <Typography>
+              This is a media card. You can use this section to describe the
+              content.
+            </Typography>
+
+            <ul>{messages.map((mess) => <li>{mess}</li>)}</ul>
+            <form onSubmit={sendMessage}>
+              <input
+                type="text"
+                placeholder="Type your message here..."
+                value={messageBody}
+                onChange={(e) => setMessageBody(e.target.value)}
+                required
+              />
+              <button
+                disabled={!isConnectionOpen}
+                type="submit"
+              >
+                send
+              </button>
+            </form>
+          </CardContent>
+
+          {/* <CardActions>
+              <Button size="small">View</Button>
+              <Button size="small">Edit</Button>
+                </CardActions> */}
+        </Card>
+      </Grid>
+    </Page>
   );
 }
 
