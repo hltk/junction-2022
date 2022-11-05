@@ -3,7 +3,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Box, Container } from '@mui/system';
+import { Box, Container, Typography } from '@mui/system';
 import Footer from './Footer';
 import Navigation from './Navigation';
 
@@ -36,19 +36,36 @@ function Page({ children }) {
   return (
     <ThemeProvider theme={themeOptions}>
       <Grid
-        style={{ minHeight: '100%' }}
+        style={{ Height: '100%', background: 'linear-gradient(#460000, #7B171A)' }}
       >
-        <Navigation />
-        <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh',
+          }}
         >
-          <Box width="60em" maxWidth="93%">{ children }</Box>
-        </Grid>
-        <Footer />
+          <Navigation />
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Box width="60em" maxWidth="93%" style={{ boxSizing: 'border-box', padding: '10px' }}>{ children }</Box>
+          </Grid>
+          <Box
+            component="footer"
+            sx={{
+              p: 2,
+              px: 2,
+              mt: 'auto',
+            }}
+          >
+            <Footer />
+          </Box>
+        </Box>
       </Grid>
     </ThemeProvider>
   );
