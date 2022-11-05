@@ -11,6 +11,7 @@ import Grid from '@mui/material/Grid';
 import StarIcon from '@mui/icons-material/StarBorder';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
@@ -18,13 +19,36 @@ import CardMedia from '@mui/material/CardMedia';
 
 import Page from './Page';
 
-const cards = [1, 2, 3, 4, 5, 6];
-const reason = ['Secure', 'Simple', 'Anonymous', 'Easy-to-relate', 'Social', 'Fast'];
-
-const explanation = ['End-to-end encyption.', 'You know how to use before even starting!',
-  'Your identity is known to no one.', 'You get to talk to people with similar problems.',
-  'Our main mission is to make socializing to people with similar issues easier!',
-  'Our backend is extremely fast and effective (hopefully).'];
+const cards = [
+  {
+    reason: 'Secure',
+    image: 'l.png',
+    explanation: 'End-to-end encyption.',
+  },
+  {
+    reason: 'Simple',
+    image: 's.png',
+    explanation: 'You know how to use before even starting!',
+  },
+  {
+    reason: 'Anonymous',
+    image: 'a.png',
+    explanation: 'Your identity is known to no one.',
+  }, {
+    reason: 'Social',
+    image: 'r.png',
+    explanation: 'Your identity is known to no one.',
+  },
+  {
+    reason: 'Easy-to-relate',
+    image: 'p.png',
+    explanation: 'You get to talk to people with similar problems.',
+  }, {
+    reason: 'Fast',
+    image: 'h.png',
+    explanation: 'Our chat is fast and lightweight.',
+  },
+];
 
 function Home() {
   return (
@@ -32,6 +56,7 @@ function Home() {
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
       {/* Hero unit */}
+      <Box mt={5} />
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
         <Typography
           component="h1"
@@ -56,7 +81,7 @@ function Home() {
       </Box>
 
       {/* Added vertical space with the Box. Maybe bad practise(?) */}
-      <Box mt={20} />
+      <Box mt={30} />
 
       <Typography
         component="h1"
@@ -66,32 +91,29 @@ function Home() {
         fontWeight="600"
         gutterBottom
       >
-        Why us?
+        Our platform is
       </Typography>
 
       <Container sx={{ py: 8 }} maxWidth="md">
         <Grid container spacing={4}>
           {cards.map((card) => (
-            <Grid item key={card} xs={12} sm={6} md={4}>
+            <Grid item key={card.reason} xs={12} sm={6} md={4}>
               <Card
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
               >
-                <CardMedia
-                  component="img"
-                  sx={{
-                    // 16:9
-                    pt: '0%',
-                    flexGrow: 1,
-                  }}
-                  image="https://th.bing.com/th/id/OIP.blM45LqX5lcpTGiwOEEIhgHaHZ?pid=ImgDet&rs=1"
-                  alt="random"
-                />
+                <Box sx={{
+                  width: '100%', display: 'flex', justifyContent: 'center', py: 2,
+                }}
+                >
+                  <img style={{ height: '8em' }} src={card.image} />
+                </Box>
+                <Divider />
                 <CardContent sx={{ flexGrow: 5 }}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    {reason[card - 1]}
+                    {card.reason}
                   </Typography>
                   <Typography>
-                    {explanation[card - 1]}
+                    {card.explanation}
                   </Typography>
                 </CardContent>
               </Card>

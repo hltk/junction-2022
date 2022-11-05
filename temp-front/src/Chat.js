@@ -45,7 +45,7 @@ function Chat() {
   const { username: receiver } = useParams();
 
   const ws = useRef();
-  const myName = JSON.parse(window.localStorage.getItem('user')).username;
+  const myName = 'react'; // JSON.parse(window.localStorage.getItem('user')).username;
 
   const sendMessage = (event) => {
     event.preventDefault();
