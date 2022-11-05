@@ -56,6 +56,7 @@ function Home() {
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
       {/* Hero unit */}
+      <Box mt={5} />
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
         <Typography
           component="h1"
@@ -80,7 +81,7 @@ function Home() {
       </Box>
 
       {/* Added vertical space with the Box. Maybe bad practise(?) */}
-      <Box mt={20} />
+      <Box mt={30} />
 
       <Typography
         component="h1"
@@ -90,7 +91,7 @@ function Home() {
         fontWeight="600"
         gutterBottom
       >
-        Why us?
+        Our platform is
       </Typography>
 
       <Container sx={{ py: 8 }} maxWidth="md">
