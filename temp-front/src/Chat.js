@@ -45,7 +45,7 @@ function Chat() {
   const { username: receiver } = useParams();
 
   const ws = useRef();
-  const myName = 'react';
+  const myName = JSON.parse(window.localStorage.getItem('user')).username;
 
   const sendMessage = (event) => {
     event.preventDefault();
@@ -62,7 +62,7 @@ function Chat() {
   };
 
   React.useEffect(() => {
-    ws.current = new WebSocket('ws://localhost:5000');
+    ws.current = new WebSocket('ws://localhost:5001');
 
     // Opening the ws connection
 
