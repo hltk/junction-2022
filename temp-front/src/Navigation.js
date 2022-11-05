@@ -5,6 +5,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
 
+
+
+
 function Navigation() {
   return (
     <>
@@ -12,14 +15,20 @@ function Navigation() {
       <AppBar
         position="static"
         color="default"
+        alignitems="center"
+        
         elevation={0}
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
+
       >
-        <Toolbar sx={{ flexWrap: 'wrap' }}>
+        <Toolbar sx={{ justifyContent: "center" }}
+        >
           { /* <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
                     Company name
                 </Typography> */ }
+              
           <nav>
+
             <Link
               variant="button"
               color="text.primary"
