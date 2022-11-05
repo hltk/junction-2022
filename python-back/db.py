@@ -51,8 +51,34 @@ def authenticate(username, password):
   
   return user
 
+@app.route("/messages")
+@jwt_required()
+def get_messages():
+  user_id = current_identity
+  username = db.session.execute("SELECT username FROM users WHERE id = :id", {"id": str(user_id)}).fetchone()[0]
+
+  res = {}
+
+  messages = db.session.execute("SELECT ts, sender, receiver, content FROM messages WHERE sender = :username OR receiver = :username", {'username': username}).fetchall()
+
+  for msg in messages:
+    a = msg[1]
+    b = msg[2]
+
+    other = b if a == username else a
+
+    formatted = {'time': str(msg[0]), 'sender': msg[1], 'receiver': msg[2], 'content': msg[3]}
+
+    if other in res:
+      res[other].append(formatted)
+    else:
+      res[other] = [formatted]
+
+  print(res)
+
+  return res
+
 def identity(payload):
-  # TODO
-  return None
+  return payload["identity"]
 
 jwt = JWT(app, authenticate, identity)
