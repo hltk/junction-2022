@@ -14,8 +14,11 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
+import CardMedia from '@mui/material/CardMedia';
 
 import Page from './Page';
+
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function Home() {
   return (
@@ -35,52 +38,53 @@ function Home() {
           Looking for someone to talk to?
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" component="p">
-          Slogan slogan slogan. With our service blah blah You get to ??? ??? ??? What's unique to us is that asd asd asd asd
+          Slogan slogan slogan. With our service blah blah You get to ??? ??? ???
+          What's unique to us is that asd asd asd asd
         </Typography>
       </Container>
-      {/* End hero unit */}
-      <Container maxWidth="md" component="main">
-        <Card>
-          <CardHeader
-            title="title"
-            subheader="subheader"
-            titleTypographyProps={{ align: 'center' }}
-            subheaderTypographyProps={{
-              align: 'center',
-            }}
-            sx={{
-              backgroundColor: (theme) => (theme.palette.mode === 'light'
-                ? theme.palette.grey[200]
-                : theme.palette.grey[700]),
-            }}
-          />
-          <CardContent>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'baseline',
-                mb: 2,
-              }}
-            />
-            <ul>
-              <Typography
-                component="li"
-                variant="subtitle1"
-                align="center"
-                key="asd"
+
+      <Button fullWidth variant="outlined">
+        Start chatting
+      </Button>
+
+      {/* Added vertical space with the Box. Maybe bad practise(?) */}
+      <Box mt={20} />
+
+      <Container sx={{ py: 8 }} maxWidth="md">
+        <Grid container spacing={4}>
+          {cards.map((card) => (
+            <Grid item key={card} xs={12} sm={6} md={4}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
               >
-                asd
-              </Typography>
-            </ul>
-          </CardContent>
-          <CardActions>
-            <Button fullWidth variant="outlined">
-              Start chatting
-            </Button>
-          </CardActions>
-        </Card>
+                <CardMedia
+                  component="img"
+                  sx={{
+                    // 16:9
+                    pt: '56.25%',
+                  }}
+                  image="https://source.unsplash.com/random"
+                  alt="random"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Heading
+                  </Typography>
+                  <Typography>
+                    This is a media card. You can use this section to describe the
+                    content.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">View</Button>
+                  <Button size="small">Edit</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       </Container>
+
     </Page>
   );
 }
