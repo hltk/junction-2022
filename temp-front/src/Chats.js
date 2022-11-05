@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import List from '@mui/material/List';
 
@@ -18,7 +18,16 @@ import IconButton from '@mui/material/IconButton';
 
 import Page from './Page';
 
+import getMessages from './getMessages';
+
 function Chats() {
+  const [messages, setMessages] = useState();
+
+  useEffect(() => {
+    const { token } = JSON.parse(window.localStorage.getItem('user'));
+    getMessages(token).then((res) => setMessages(res.data));
+  }, []);
+
   return (
     <Page>
       <Grid

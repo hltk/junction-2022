@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
@@ -37,10 +37,18 @@ import {
 
 import Page from './Page';
 
+import getMessages from './getMessages';
+
 function Chat() {
-  const [messages, setMessages] = React.useState([]);
   const [isConnectionOpen, setConnectionOpen] = React.useState(false);
   const [messageBody, setMessageBody] = React.useState('');
+
+  const [messages, setMessages] = useState();
+
+  useEffect(() => {
+    const { token } = JSON.parse(window.localStorage.getItem('user'));
+    getMessages(token).then((res) => setMessages(res.data));
+  }, []);
 
   const { username: receiver } = useParams();
 
