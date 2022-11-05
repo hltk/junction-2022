@@ -58,7 +58,7 @@ function Page({ children }) {
           <Box
             component="footer"
             sx={{
-              p: [0, 0, 0, 0],
+              p: 2,
               px: 2,
               mt: 'auto',
             }}
