@@ -18,13 +18,36 @@ import CardMedia from '@mui/material/CardMedia';
 
 import Page from './Page';
 
-const cards = [1, 2, 3, 4, 5, 6];
-const reason = ['Secure', 'Simple', 'Anonymous', 'Easy-to-relate', 'Social', 'Fast'];
-
-const explanation = ['End-to-end encyption.', 'You know how to use before even starting!',
-  'Your identity is known to no one.', 'You get to talk to people with similar problems.',
-  'Our main mission is to make socializing to people with similar issues easier!',
-  'Our backend is extremely fast and effective (hopefully).'];
+const cards = [
+  {
+    reason: 'Secure',
+    image: 's.png',
+    explanation: 'End-to-end encyption.',
+  },
+  {
+    reason: 'Simple',
+    image: 's.png',
+    explanation: 'You know how to use before even starting!',
+  },
+  {
+    reason: 'Anonymous',
+    image: 's.png',
+    explanation: 'Your identity is known to no one.',
+  }, {
+    reason: 'Social',
+    image: 's.png',
+    explanation: 'Your identity is known to no one.',
+  },
+  {
+    reason: 'Easy-to-relate',
+    image: 's.png',
+    explanation: 'You get to talk to people with similar problems.',
+  }, {
+    reason: 'Fast',
+    image: 's.png',
+    explanation: 'Our chat is fast and lightweight.',
+  },
+];
 
 function Home() {
   return (
@@ -79,19 +102,18 @@ function Home() {
                 <CardMedia
                   component="img"
                   sx={{
-                    // 16:9
-                    pt: '0%',
+                    p: '5px',
                     flexGrow: 1,
                   }}
-                  image="https://th.bing.com/th/id/OIP.blM45LqX5lcpTGiwOEEIhgHaHZ?pid=ImgDet&rs=1"
+                  image={card.image}
                   alt="random"
                 />
                 <CardContent sx={{ flexGrow: 5 }}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    {reason[card - 1]}
+                    {card.reason}
                   </Typography>
                   <Typography>
-                    {explanation[card - 1]}
+                    {card.explanation}
                   </Typography>
                 </CardContent>
               </Card>
