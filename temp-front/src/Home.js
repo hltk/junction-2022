@@ -49,9 +49,11 @@ function Home() {
         </Typography>
       </Container>
 
-      <Button fullWidth variant="outlined">
-        Start chatting
-      </Button>
+      <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+        <Button href="/chat" size="large" variant="outlined">
+          Start chatting
+        </Button>
+      </Box>
 
       {/* Added vertical space with the Box. Maybe bad practise(?) */}
       <Box mt={20} />
