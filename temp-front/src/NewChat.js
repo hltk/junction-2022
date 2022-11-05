@@ -26,6 +26,11 @@ import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
+import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
+
+import LoopIcon from '@mui/icons-material/Loop';
+import PeopleIcon from '@mui/icons-material/People';
+import EmojiFlagsIcon from '@mui/icons-material/EmojiFlags';
 
 import Page from './Page';
 
@@ -56,23 +61,23 @@ function NewChat() {
             >
               <ListItemButton>
                 <ListItemIcon>
-                  <SendIcon />
+                  <PsychologyAltIcon />
                 </ListItemIcon>
                 <ListItemText primary="Mental Health" />
                 {open1 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <ListItemButton>
                 <ListItemIcon>
-                  <DraftsIcon />
+                  <LoopIcon />
                 </ListItemIcon>
                 <ListItemText primary="Addiction" />
                 {open2 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <ListItemButton onClick={() => setOpen3((b) => !b)}>
                 <ListItemIcon>
-                  <InboxIcon />
+                  <EmojiFlagsIcon />
                 </ListItemIcon>
-                <ListItemText primary="Inbox" />
+                <ListItemText primary="Sexual or Gender Identity" />
                 {open3 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={open3} timeout="auto" unmountOnExit>
@@ -87,7 +92,7 @@ function NewChat() {
               </Collapse>
               <ListItemButton>
                 <ListItemIcon>
-                  <InboxIcon />
+                  <PeopleIcon />
                 </ListItemIcon>
                 <ListItemText primary="Relationships" />
                 {open4 ? <ExpandLess /> : <ExpandMore />}
