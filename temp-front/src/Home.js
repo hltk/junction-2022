@@ -18,7 +18,13 @@ import CardMedia from '@mui/material/CardMedia';
 
 import Page from './Page';
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [1, 2, 3, 4, 5, 6];
+const reason = ['Secure', 'Simple', 'Anonymous', 'Easy-to-relate', 'Social', 'Fast'];
+
+const explanation = ['End-to-end encyption.', 'You know how to use before even starting!',
+  'Your identity is known to no one.', 'You get to talk to people with similar problems.',
+  'Our main mission is to make socializing to people with similar issues easier!',
+  'Our backend is extremely fast and effective (hopefully).'];
 
 function Home() {
   return (
@@ -52,6 +58,17 @@ function Home() {
       {/* Added vertical space with the Box. Maybe bad practise(?) */}
       <Box mt={20} />
 
+      <Typography
+        component="h1"
+        variant="h2"
+        align="center"
+        color="text.primary"
+        fontWeight="600"
+        gutterBottom
+      >
+        Why us?
+      </Typography>
+
       <Container sx={{ py: 8 }} maxWidth="md">
         <Grid container spacing={4}>
           {cards.map((card) => (
@@ -63,24 +80,20 @@ function Home() {
                   component="img"
                   sx={{
                     // 16:9
-                    pt: '56.25%',
+                    pt: '0%',
+                    flexGrow: 1,
                   }}
-                  image="https://source.unsplash.com/random"
+                  image="https://th.bing.com/th/id/OIP.blM45LqX5lcpTGiwOEEIhgHaHZ?pid=ImgDet&rs=1"
                   alt="random"
                 />
-                <CardContent sx={{ flexGrow: 1 }}>
+                <CardContent sx={{ flexGrow: 5 }}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    Heading
+                    {reason[card - 1]}
                   </Typography>
                   <Typography>
-                    This is a media card. You can use this section to describe the
-                    content.
+                    {explanation[card - 1]}
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Button size="small">View</Button>
-                  <Button size="small">Edit</Button>
-                </CardActions>
               </Card>
             </Grid>
           ))}
