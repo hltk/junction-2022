@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 
 import './login.css';
+import Navigation from './Navigation';
 
 function Login() {
   const [username, setUsername] = useState();
@@ -13,7 +14,8 @@ function Login() {
     console.log(username, password);
   };
 
-  return (
+  return <>
+    <Navigation />
     <form className="form">
       <FormControl>
         <InputLabel htmlFor="username">Username</InputLabel>
@@ -39,7 +41,7 @@ function Login() {
         Log in
       </Button>
     </form>
-  );
+  </>;
 }
 
 export default Login;
