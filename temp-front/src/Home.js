@@ -19,7 +19,7 @@ import Navigation from './Navigation';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -205,11 +205,7 @@ function Home() {
                 </Typography>
                 <ul>
                   {footer.description.map((item) => (
-                    <li key={item}>
-                      <Link href="#" variant="subtitle1" color="text.secondary">
-                        {item}
-                      </Link>
-                    </li>
+                    <li key={item} />
                   ))}
                 </ul>
               </Grid>
