@@ -40,53 +40,46 @@ function Home() {
       </Container>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          md={4}
-        >
-          <Card>
-            <CardHeader
-              title="title"
-              subheader="subheader"
-              titleTypographyProps={{ align: 'center' }}
-              subheaderTypographyProps={{
-                align: 'center',
-              }}
+        <Card>
+          <CardHeader
+            title="title"
+            subheader="subheader"
+            titleTypographyProps={{ align: 'center' }}
+            subheaderTypographyProps={{
+              align: 'center',
+            }}
+            sx={{
+              backgroundColor: (theme) => (theme.palette.mode === 'light'
+                ? theme.palette.grey[200]
+                : theme.palette.grey[700]),
+            }}
+          />
+          <CardContent>
+            <Box
               sx={{
-                backgroundColor: (theme) => (theme.palette.mode === 'light'
-                  ? theme.palette.grey[200]
-                  : theme.palette.grey[700]),
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'baseline',
+                mb: 2,
               }}
             />
-            <CardContent>
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'baseline',
-                  mb: 2,
-                }}
-              />
-              <ul>
-                <Typography
-                  component="li"
-                  variant="subtitle1"
-                  align="center"
-                  key="asd"
-                >
-                  asd
-                </Typography>
-              </ul>
-            </CardContent>
-            <CardActions>
-              <Button fullWidth variant="outlined">
-                Start chatting
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
+            <ul>
+              <Typography
+                component="li"
+                variant="subtitle1"
+                align="center"
+                key="asd"
+              >
+                asd
+              </Typography>
+            </ul>
+          </CardContent>
+          <CardActions>
+            <Button fullWidth variant="outlined">
+              Start chatting
+            </Button>
+          </CardActions>
+        </Card>
       </Container>
     </Page>
   );
