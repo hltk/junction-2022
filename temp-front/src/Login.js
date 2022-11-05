@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Button, FormControl, Input, InputLabel, TextField, Box, Avatar, Typography, FormControlLabel, Grid, Link, Checkbox,
+  Button, TextField, Box, Avatar, Typography, FormControlLabel, Grid, Link, Checkbox,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/Favorite';
 import axios from 'axios';
@@ -12,10 +12,10 @@ function Login() {
   const [password, setPassword] = useState('');
 
   const login = async () => {
-    const resp = await axios.post("http://localhost:5000/auth", { username, password })
+    const resp = await axios.post('http://localhost:5000/auth', { username, password });
 
-    window.localStorage.setItem("user", JSON.stringify({ username, token: resp.data.access_token }))
-    console.log(window.localStorage)
+    window.localStorage.setItem('user', JSON.stringify({ username, token: resp.data.access_token }));
+    console.log(window.localStorage);
   };
 
   return (
