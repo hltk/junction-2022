@@ -69,7 +69,10 @@ function Home() {
           Looking for someone to talk to?
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" component="p">
-          Discuss taboos within the shadow of anonymity.
+          Our anonymous messaging platform is the solution.
+          Once a day, we connect you to a new person with similar issues.
+          The combination of the new perspective with the shared experience
+          yields unforeseen realisations.
         </Typography>
 
       </Container>
