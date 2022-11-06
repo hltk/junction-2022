@@ -58,9 +58,9 @@ function Footer() {
             <Typography variant="h6" color="text.primary" gutterBottom>
               {footer.title}
             </Typography>
-            <ul>
+            <ul style={{paddingLeft:0}}>
               {footer.description.map((item) => (
-                <li key={item}>
+                <li style={{listStyle:'none'}} key={item}>
                   <Link href="#" variant="subtitle1" color="text.secondary">
                     {item}
                   </Link>

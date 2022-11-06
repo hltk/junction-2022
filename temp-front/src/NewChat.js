@@ -50,7 +50,7 @@ function NewChat() {
         justifyContent="center"
       >
         <Box width="40em" maxWidth="100%">
-          <Card>
+          <Card sx={{ marginTop: '1em' }}>
             <Box sx={{ p: 2, display: 'flex' }}>
               <Typography variant="h5" sx={{ fontWeight: 600 }}>Find someone to talk to about:</Typography>
             </Box>

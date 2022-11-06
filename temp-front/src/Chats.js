@@ -12,6 +12,7 @@ import Link from '@mui/material/Link';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -24,6 +25,7 @@ import getMessages from './getMessages';
 
 function Chats() {
   const [messages, setMessages] = useState({});
+  const [timeString, setTimeString] = useState('');
 
   useEffect(() => {
     const { token } = JSON.parse(window.localStorage.getItem('user'));
@@ -31,6 +33,22 @@ function Chats() {
   }, []);
 
   const myName = JSON.parse(window.localStorage.getItem('user')).username;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const today = new Date();
+      const Christmas = new Date(`${today.getFullYear()}-12-25`);
+      const diffMs = (Christmas - today); // milliseconds between now & Christmas
+      const diffDays = Math.floor(diffMs / 86400000); // days
+      const diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+      const diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+      const diffSeconds = Math.round(((diffMs % 86400000) % (3600000 / 60)) / (1000)); // Seconds
+      setTimeString(`${String(diffHrs).padStart(2, '0')}:${String(diffMins).padStart(2, '0')}:${+String(diffSeconds).padStart(2, '0')}`);
+    });
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <Page>
@@ -42,7 +60,33 @@ function Chats() {
         justifyContent="center"
       >
         <Box width="40em" maxWidth="100%">
-          <Card>
+          <Card sx={{ padding: '0.75em', marginTop: '1em' }}>
+            <Box sx={{
+              width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center',
+            }}
+            >
+              <Box>
+                <Typography sx={{ fontWeight: 500, fontSize: '15px', p: '5px', color: 'text.secondary' }}>
+                  You may start a new chat in
+                  {' '}
+                  { timeString }
+                  {' '}
+                  hours.
+                </Typography>
+              </Box>
+              <Box sx={{ flexGrow: 1 }} />
+              <Button
+                variant="contained"
+                size="large"
+                sx={{ m: '5px' }}
+                disabled
+              >
+                Start a new chat
+              </Button>
+            </Box>
+
+          </Card>
+          <Card sx={{ marginTop: '1em' }}>
             <Box sx={{ p: 2, display: 'flex' }}>
               <Typography variant="h5" sx={{ fontWeight: 600 }}>Your active chats</Typography>
             </Box>

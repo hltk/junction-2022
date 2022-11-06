@@ -47,16 +47,20 @@ function Navigation() {
             <LinkItem name="Start a chat" url="/chat" />
             <LinkItem name="Chats" url="/chats" />
             <Box sx={{ float: 'right' }}>
-              { !loggedIn &&
+              { !loggedIn
+              && (
               <Button href="/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                 Login
               </Button>
-              }
-              { loggedIn &&
-              <Button startIcon={<AccountCircleIcon></AccountCircleIcon>} variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-                Logged in as {JSON.parse(loggedIn).username}
+              )}
+              { loggedIn
+              && (
+              <Button startIcon={<AccountCircleIcon />} variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+                Logged in as
+                {' '}
+                {JSON.parse(loggedIn).username}
               </Button>
-              }
+              )}
             </Box>
           </Box>
         </Toolbar>
