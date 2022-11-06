@@ -58,7 +58,7 @@ function Chat() {
   const [isConnectionOpen, setConnectionOpen] = React.useState(false);
   const [messageBody, setMessageBody] = React.useState('');
 
-  const [messages, setMessages] = useState();
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     const { token } = JSON.parse(window.localStorage.getItem('user'));
