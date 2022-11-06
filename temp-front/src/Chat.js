@@ -53,19 +53,26 @@ import { CompressOutlined } from '@mui/icons-material';
 import Page from './Page';
 
 import getMessages from './getMessages';
+import getUserinfo from './getUser';
 
 function Chat() {
   const [isConnectionOpen, setConnectionOpen] = React.useState(false);
   const [messageBody, setMessageBody] = React.useState('');
+  const [userinfo, setUserinfo] = useState();
 
   const [messages, setMessages] = useState([]);
+
+  const { username: receiver } = useParams();
 
   useEffect(() => {
     const { token } = JSON.parse(window.localStorage.getItem('user'));
     getMessages(token).then((res) => setMessages(res.data[receiver] ? res.data[receiver] : []));
   }, []);
 
-  const { username: receiver } = useParams();
+  useEffect(() => {
+    const { token } = JSON.parse(window.localStorage.getItem('user'));
+    getUserinfo(token, receiver).then((res) => setUserinfo(res.data));
+  });
 
   const ws = useRef();
   const myName = JSON.parse(window.localStorage.getItem('user')).username;
@@ -79,7 +86,7 @@ function Chat() {
         receiver,
         body: messageBody,
       };
-      setMessages((cur) => [...cur, newMessage])
+      setMessages((cur) => [...cur, newMessage]);
       ws.current.send(
         JSON.stringify(newMessage),
       );
@@ -104,7 +111,6 @@ function Chat() {
       console.log('Connection closed. Sorry :/');
       setConnectionOpen(false);
     };
-
 
     // Listening on ws new added messages
 
@@ -148,7 +154,7 @@ function Chat() {
                 </IconButton>
             )}
               title={receiver}
-              subheader={<i>... is looking for someone to chat with about his problems regarding...</i>}
+              subheader={<i>{userinfo}</i>}
             />
             <CardContent style={{ paddingTop: 0, marginTop: 0 }}>
               <Card style={{
@@ -156,22 +162,23 @@ function Chat() {
               }}
               >
                 {messages.map((message) => (
-                <Box
-                key={message.id}
-                  sx={{
-                    display: 'flex',
-                    justifyContent: message.sender === myName ? 'flex-end' : 'flex-start',
-                  }}
-                >
-                  <Card style={{
-                    minWidth: '10em', maxWidth: '70%', margin: '10px', padding: '3px',
-                  }}
+                  <Box
+                    key={message.id}
+                    sx={{
+                      display: 'flex',
+                      justifyContent: message.sender === myName ? 'flex-end' : 'flex-start',
+                    }}
                   >
-                    {message.body}
-                  </Card>
-                  {' '}
+                    <Card style={{
+                      minWidth: '10em', maxWidth: '70%', margin: '10px', padding: '3px',
+                    }}
+                    >
+                      {message.body}
+                    </Card>
+                    {' '}
 
-                </Box>))}
+                  </Box>
+                ))}
               </Card>
               <form onSubmit={sendMessage}>
 

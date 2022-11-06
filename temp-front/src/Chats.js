@@ -29,7 +29,7 @@ function Chats() {
     const { token } = JSON.parse(window.localStorage.getItem('user'));
     getMessages(token).then((res) => setMessages(res.data));
   }, []);
-  
+
   const myName = JSON.parse(window.localStorage.getItem('user')).username;
 
   return (
@@ -50,31 +50,34 @@ function Chats() {
             <Divider />
             <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
               {
-                Object.keys(messages).map((friend) => <Box key={friend}>
-              
-              <ListItem alignItems="flex-start" button component={"a"} href={`/chat/${friend}`}>
-                <ListItemAvatar>
-                  <Avatar alt={friend} src="/static/images/avatar/1.jpg" />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={friend}
-                  secondary={(
-                    <>
-                      <Typography
-                        sx={{ display: 'inline' }}
-                        component="span"
-                        variant="body2"
-                        color="text.primary"
-                      >
-                        {messages[friend].slice(-1)[0].sender === myName ? "you" : messages[friend].slice(-1)[0].sender}
-                      </Typography>
-                      {" — "}
-                      {messages[friend].slice(-1)[0].body}
-                    </>
+                Object.keys(messages).map((friend) => (
+                  <Box key={friend}>
+
+                    <ListItem alignItems="flex-start" button component="a" href={`/chat/${friend}`}>
+                      <ListItemAvatar>
+                        <Avatar alt={friend} src="/static/images/avatar/1.jpg" />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={friend}
+                        secondary={(
+                          <>
+                            <Typography
+                              sx={{ display: 'inline' }}
+                              component="span"
+                              variant="body2"
+                              color="text.primary"
+                            >
+                              {messages[friend].slice(-1)[0].sender === myName ? 'you' : messages[friend].slice(-1)[0].sender}
+                            </Typography>
+                            {" — I'll be in your neighborhood doing errands this…"}
+                          </>
           )}
-                />
-              </ListItem>
-              <Divider variant="inset" component="li" /></Box>)}
+                      />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                  </Box>
+                ))
+}
             </List>
           </Card>
         </Box>

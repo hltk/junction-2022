@@ -69,9 +69,9 @@ function Home() {
           Looking for someone to talk to?
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" component="p">
-          Slogan slogan slogan. With our service blah blah You get to ??? ??? ???
-          What's unique to us is that asd asd asd asd
+          Discuss taboos within the shadow of anonymity.
         </Typography>
+
       </Container>
 
       <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
@@ -129,7 +129,7 @@ function Home() {
           src="m1.png"
           style={{
             alignSelf: 'center',
-            width: '60%',
+            width: '30vw',
             paddingRight: '50px',
           }}
         />
@@ -160,7 +160,7 @@ function Home() {
             with both parties agreement, de-anonymize yourselfs!
           </Typography>
         </Box>
-        <img src="m1.png" style={{ alignSelf: 'center', width: '60%' }} alt="chat window." />
+        <img src="m1.png" style={{ alignSelf: 'center', width: '30vw' }} alt="chat window." />
       </Container>
 
       <Box mt={25} />
