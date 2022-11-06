@@ -37,7 +37,7 @@ const cards = [
   }, {
     reason: 'Social',
     image: 'r.png',
-    explanation: 'Your identity is known to no one.',
+    explanation: 'Solve your problems through socialization.',
   },
   {
     reason: 'Easy-to-relate',
