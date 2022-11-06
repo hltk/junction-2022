@@ -21,7 +21,7 @@ import Page from './Page';
 import getMessages from './getMessages';
 
 function Chats() {
-  const [messages, setMessages] = useState();
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     const { token } = JSON.parse(window.localStorage.getItem('user'));

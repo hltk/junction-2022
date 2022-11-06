@@ -58,27 +58,30 @@ function Chat() {
   const [isConnectionOpen, setConnectionOpen] = React.useState(false);
   const [messageBody, setMessageBody] = React.useState('');
 
-  const [messages, setMessages] = useState();
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     const { token } = JSON.parse(window.localStorage.getItem('user'));
-    getMessages(token).then((res) => setMessages(res.data));
+    getMessages(token).then((res) => setMessages(res.data[receiver] ? res.data[receiver] : []));
   }, []);
 
   const { username: receiver } = useParams();
 
   const ws = useRef();
-  const myName = 'react'; // JSON.parse(window.localStorage.getItem('user')).username;
+  const myName = JSON.parse(window.localStorage.getItem('user')).username;
 
   const sendMessage = (event) => {
     event.preventDefault();
     if (messageBody) {
+      const newMessage = {
+        id: Date.now(),
+        sender: myName,
+        receiver,
+        body: messageBody,
+      };
+      setMessages((cur) => [...cur, newMessage])
       ws.current.send(
-        JSON.stringify({
-          sender: myName,
-          receiver,
-          body: messageBody,
-        }),
+        JSON.stringify(newMessage),
       );
       setMessageBody('');
     }
@@ -97,12 +100,17 @@ function Chat() {
       );
     };
 
+    ws.current.onclose = () => {
+      console.log('Connection closed. Sorry :/');
+      setConnectionOpen(false);
+    };
+
+
     // Listening on ws new added messages
 
     ws.current.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      console.log(data);
-      setMessages((_messages) => [..._messages, data.body]);
+      setMessages((cur) => [...cur, data]);
     };
 
     return () => {
@@ -147,35 +155,23 @@ function Chat() {
                 overflowY: 'auto', height: 'min(40em,50vh)', background: '#00000044', marginBottom: 20,
               }}
               >
-
+                {messages.map((message) => (
                 <Box
+                key={message.id}
                   sx={{
                     display: 'flex',
-                    justifyContent: 'flex-start',
+                    justifyContent: message.sender === myName ? 'flex-end' : 'flex-start',
                   }}
                 >
                   <Card style={{
                     minWidth: '10em', maxWidth: '70%', margin: '10px', padding: '3px',
                   }}
                   >
-                    message dasdadhsakjdsajkdhaskdjsahd asjkhd sakjd hsa dasdadhsakjdsajkdhaskdjsahd
+                    {message.body}
                   </Card>
                   {' '}
 
-                </Box>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                  }}
-                >
-                  <Card style={{
-                    minWidth: '10em', maxWidth: '70%', margin: '10px', padding: '3px',
-                  }}
-                  >
-                    message
-                  </Card>
-                </Box>
+                </Box>))}
               </Card>
               <form onSubmit={sendMessage}>
 
@@ -195,7 +191,7 @@ function Chat() {
                   <Button
                     disabled={!isConnectionOpen}
                     type="submit"
-                    variant="outlined"
+                    variant="contained"
                     size="large"
                   >
                     send
