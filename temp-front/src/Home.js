@@ -129,7 +129,7 @@ function Home() {
           src="m1.png"
           style={{
             alignSelf: 'center',
-            width: '60%',
+            width: '30vw',
             paddingRight: '50px',
           }}
         />
@@ -160,7 +160,7 @@ function Home() {
             with both parties agreement, de-anonymize yourselfs!
           </Typography>
         </Box>
-        <img src="m1.png" style={{ alignSelf: 'center', width: '60%' }} alt="chat window." />
+        <img src="m1.png" style={{ alignSelf: 'center', width: '30vw' }} alt="chat window." />
       </Container>
 
       <Box mt={25} />

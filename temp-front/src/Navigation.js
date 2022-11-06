@@ -6,6 +6,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
 
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 function LinkItem({ name, url }) {
   return (
     <Box sx={{ float: 'left' }}>
@@ -17,6 +19,8 @@ function LinkItem({ name, url }) {
 }
 
 function Navigation() {
+  const loggedIn = window.localStorage.getItem('user');
+
   return (
     <>
       <CssBaseline />
@@ -43,9 +47,16 @@ function Navigation() {
             <LinkItem name="Start a chat" url="/chat" />
             <LinkItem name="Chats" url="/chats" />
             <Box sx={{ float: 'right' }}>
+              { !loggedIn &&
               <Button href="/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                 Login
               </Button>
+              }
+              { loggedIn &&
+              <Button startIcon={<AccountCircleIcon></AccountCircleIcon>} variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+                Logged in as {JSON.parse(loggedIn).username}
+              </Button>
+              }
             </Box>
           </Box>
         </Toolbar>
