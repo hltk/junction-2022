@@ -5,6 +5,7 @@ import NewChat from './NewChat';
 import Chat from './Chat';
 import Chats from './Chats';
 import Home from './Home';
+import Loader from './Loader';
 import Login from './Login';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/chat/:username" element={<Chat />} exact />
         <Route path="/chats" element={<Chats />} exact />
         <Route path="/login" element={<Login />} exact />
+        <Route path="/loader" element={<Loader />} exact />
       </Routes>
     </Router>
   );

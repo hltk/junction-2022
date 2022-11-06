@@ -27,10 +27,14 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
 import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
+import ShareIcon from '@mui/icons-material/Share';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import SmokingRoomsIcon from '@mui/icons-material/SmokingRooms';
 
 import LoopIcon from '@mui/icons-material/Loop';
 import PeopleIcon from '@mui/icons-material/People';
 import EmojiFlagsIcon from '@mui/icons-material/EmojiFlags';
+import LanguageIcon from '@mui/icons-material/Language';
 
 import Page from './Page';
 
@@ -67,13 +71,35 @@ function NewChat() {
                 <ListItemText primary="Mental Health" />
                 {open1 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <ListItemButton>
+              <ListItemButton onClick={() => setOpen2((b) => !b)}>
                 <ListItemIcon>
                   <LoopIcon />
                 </ListItemIcon>
                 <ListItemText primary="Addiction" />
                 {open2 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
+              <Collapse in={open2} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <ShareIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Social Media" />
+                  </ListItemButton>
+                  <ListItemButton href="/loader" sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <SmokingRoomsIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Drugs and Alcohol" />
+                  </ListItemButton>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <LanguageIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Internet" />
+                  </ListItemButton>
+                </List>
+              </Collapse>
               <ListItemButton onClick={() => setOpen3((b) => !b)}>
                 <ListItemIcon>
                   <EmojiFlagsIcon />
@@ -85,7 +111,7 @@ function NewChat() {
                 <List component="div" disablePadding>
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <StarBorder />
+                      <FiberManualRecordIcon />
                     </ListItemIcon>
                     <ListItemText primary="Starred" />
                   </ListItemButton>
