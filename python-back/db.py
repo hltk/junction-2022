@@ -134,10 +134,10 @@ def get_messages():
 
   return res
 
-@app.route("/user_info/<string:username>")
-@jwt_required()
-def get_userinfo(username):
-  return [user for user in users if user["username"] == username][0]["description"]
+#@app.route("/user_info/<string:username>")
+#@jwt_required()
+#def get_userinfo(username):
+#  return [user for user in users if user["username"] == username][0]["description"]
 
 def identity(payload):
   return payload["identity"]

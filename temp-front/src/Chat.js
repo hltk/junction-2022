@@ -135,7 +135,7 @@ function Chat() {
         justifyContent="center"
       >
         <Box width="40em" maxWidth="100%">
-          <Card sx={{ width: '100%', marginBottom: '1em', color: 'secondary.main' }}>
+          <Card sx={{ width: '100%', marginBottom: '1em', color: 'text.secondary' }}>
             <Button sx={{ margin: '10px' }} href="/chats" variant="outlined" startIcon={<ArrowBackIcon />}>
               Back to chats
             </Button>
