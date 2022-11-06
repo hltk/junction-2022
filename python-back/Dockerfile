@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.10-alpine
 
 WORKDIR /usr/src/app
 
@@ -8,6 +8,7 @@ RUN pip install -r requirements.txt
 
 COPY . /usr/src/app
 
+ENV FLASK_ENV=development
 ENV FLASK_APP=db.py
 
 EXPOSE 5000
