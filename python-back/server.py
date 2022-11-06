@@ -5,10 +5,10 @@ import time
 from collections import namedtuple
 from dotenv import load_dotenv
 
-load_dotenv()
-
 import os
 import psycopg2
+
+load_dotenv()
 
 class User:
     def __init__(self, socket):

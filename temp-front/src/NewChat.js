@@ -29,10 +29,8 @@ import LanguageIcon from '@mui/icons-material/Language';
 import Page from './Page';
 
 function NewChat() {
-  const [open1, setOpen1] = useState(false);
-  const [open2, setOpen2] = useState(false);
-  const [open3, setOpen3] = useState(false);
-  const [open4, setOpen4] = useState(false);
+  const [addictionOpen, setAddictionOpen] = useState(false);
+  const [identityOpen, setIdentityOpen] = useState(false);
 
   return (
     <Page>
@@ -59,16 +57,16 @@ function NewChat() {
                   <PsychologyAltIcon />
                 </ListItemIcon>
                 <ListItemText primary="Mental Health" />
-                {open1 ? <ExpandLess /> : <ExpandMore />}
+                <ExpandMore />
               </ListItemButton>
-              <ListItemButton onClick={() => setOpen2((b) => !b)}>
+              <ListItemButton onClick={() => setAddictionOpen((b) => !b)}>
                 <ListItemIcon>
                   <LoopIcon />
                 </ListItemIcon>
                 <ListItemText primary="Addiction" />
-                {open2 ? <ExpandLess /> : <ExpandMore />}
+                {addictionOpen ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open2} timeout="auto" unmountOnExit>
+              <Collapse in={addictionOpen} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
@@ -90,14 +88,14 @@ function NewChat() {
                   </ListItemButton>
                 </List>
               </Collapse>
-              <ListItemButton onClick={() => setOpen3((b) => !b)}>
+              <ListItemButton onClick={() => setIdentityOpen((b) => !b)}>
                 <ListItemIcon>
                   <EmojiFlagsIcon />
                 </ListItemIcon>
                 <ListItemText primary="Sexual or Gender Identity" />
-                {open3 ? <ExpandLess /> : <ExpandMore />}
+                {identityOpen ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open3} timeout="auto" unmountOnExit>
+              <Collapse in={identityOpen} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
@@ -112,7 +110,7 @@ function NewChat() {
                   <PeopleIcon />
                 </ListItemIcon>
                 <ListItemText primary="Relationships" />
-                {open4 ? <ExpandLess /> : <ExpandMore />}
+                <ExpandMore />
               </ListItemButton>
             </List>
           </Card>

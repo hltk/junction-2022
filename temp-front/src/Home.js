@@ -128,6 +128,7 @@ function Home() {
             width: '30vw',
             paddingRight: '50px',
           }}
+          alt="ad"
         />
         <Box>
           <Typography style={{ fontWeight: 600, fontSize: '35px', paddingBottom: '0.75em' }}>Find other people with similar problems!</Typography>
@@ -153,7 +154,7 @@ function Home() {
           <Typography sx={{ color: 'primary.main', paddingRight: '50px' }}>
             Discussing personal issues is hard. We are here to make it easier: your identity
             is hidden! If, however, you truly start to trust the person in the other end, you can –
-            with both parties' agreement – de-anonymize yourselfs!
+            with both parties&apos; agreement – de-anonymize yourselfs!
           </Typography>
         </Box>
         <img src="m1.png" style={{ alignSelf: 'center', width: '30vw' }} alt="chat window." />

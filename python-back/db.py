@@ -32,7 +32,6 @@ users = [
                 'description': 'is struggling with addiction',
                 'password': 'pbkdf2:sha256:260000$4ydhhUqIEZMXaRvA$4ac8e3812ffd97fdfd11b20579a977c1b6c9e5bc33c6d19431906fa0a78344db'
             }
-
         ]
 
 messages = [
@@ -43,7 +42,7 @@ messages = [
                     'time': 12321321,
                     'body': "What's up?"
                 },
-                                {
+                {
                     'id': 1,
                     'sender': 'anonymous ant',
                     'receiver': 'h-dawg',
@@ -57,7 +56,7 @@ messages = [
                     'time': 12321321,
                     'body': "I'm so glad we were matched to tackle our prob..."
                 },
-                                {
+                {
                     'id': 3,
                     'sender': 'curious koala bear',
                     'receiver': 'h-dawg',
@@ -111,7 +110,6 @@ def login():
     if not check_password_hash(password_hash, password):
       return None
 
-    # Notice that we are passing in the actual sqlalchemy user object here
     access_token = create_access_token(identity=user)
     return jsonify(access_token=access_token)
 
