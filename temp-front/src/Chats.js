@@ -66,7 +66,10 @@ function Chats() {
             }}
             >
               <Box>
-                <Typography sx={{ fontWeight: 500, fontSize: '15px', p: '5px', color: 'text.secondary' }}>
+                <Typography sx={{
+                  fontWeight: 500, fontSize: '15px', p: '5px', color: 'text.secondary',
+                }}
+                >
                   You may start a new chat in
                   {' '}
                   { timeString }
@@ -102,9 +105,7 @@ function Chats() {
                         <Avatar src="/static/images/avatar/1.jpg" />
                       </ListItemAvatar>
                       <ListItemText
-                        primary={friend.split(" ").map((word) => { 
-                          return word[0].toUpperCase() + word.substring(1); 
-                      }).join(" ")}
+                        primary={friend.split(' ').map((word) => word[0].toUpperCase() + word.substring(1)).join(' ')}
                         secondary={(
                           <>
                             <Typography
@@ -113,11 +114,9 @@ function Chats() {
                               variant="body2"
                               color="text.primary"
                             >
-                              {messages[friend].slice(-1)[0].sender === myName ? <i>you</i> : messages[friend].slice(-1)[0].sender.split(" ").map((word) => { 
-                          return word[0].toUpperCase() + word.substring(1); 
-                      }).join(" ")}
+                              {messages[friend].slice(-1)[0].sender === myName ? <i>you</i> : messages[friend].slice(-1)[0].sender.split(' ').map((word) => word[0].toUpperCase() + word.substring(1)).join(' ')}
                             </Typography>
-                            {" — "}
+                            {' — '}
                             {messages[friend].slice(-1)[0].body}
                           </>
           )}

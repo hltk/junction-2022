@@ -5,9 +5,8 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
-import { ReactComponent as LogoSvg } from './pear.svg';
-
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { ReactComponent as LogoSvg } from './pear.svg';
 
 function LinkItem({ name, url }) {
   return (
@@ -44,9 +43,14 @@ function Navigation() {
               maxWidth: '100%', width: '50em', p: 1, bgcolor: 'background.paper', borderRadius: 1,
             }}
           >
-            <Button href="/" variant="outlined" sx={{ float:'left', my: 1, mx: 1.5 }}>
-              <Box style={{display:'flex'}}>
-                <Box sx={{ display:'flex', alignItems:'center', width:'1.5em'}}><LogoSvg /></Box>
+            <Button href="/" variant="outlined" sx={{ float: 'left', my: 1, mx: 1.5 }}>
+              <Box style={{ display: 'flex' }}>
+                <Box sx={{
+                  display: 'flex', alignItems: 'center', width: '1.75em', paddingRight: '5px',
+                }}
+                >
+                  <LogoSvg />
+                </Box>
                 PearSupport
               </Box>
             </Button>
