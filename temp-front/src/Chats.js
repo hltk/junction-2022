@@ -43,7 +43,7 @@ function Chats() {
       const diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
       const diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
       const diffSeconds = Math.round(((diffMs % 86400000) % (3600000 / 60)) / (1000)); // Seconds
-      setTimeString(`${String(diffHrs).padStart(2, '0')}:${String(diffMins).padStart(2, '0')}:${+String(diffSeconds).padStart(2, '0')}`);
+      setTimeString(`${String(diffHrs).padStart(2, '0')}:${String(diffMins).padStart(2, '0')}:${String(diffSeconds).padStart(2, '0')}`);
     });
     return () => {
       clearInterval(interval);
