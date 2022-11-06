@@ -43,6 +43,9 @@ function Navigation() {
               maxWidth: '100%', width: '50em', p: 1, bgcolor: 'background.paper', borderRadius: 1,
             }}
           >
+            <Button variant="outlined" sx={{ float:'left', my: 1, mx: 1.5 }}>
+              PearSupport
+            </Button>
             <LinkItem name="Home" url="/" />
             <LinkItem name="Start a chat" url="/chat" />
             <LinkItem name="Chats" url="/chats" />
