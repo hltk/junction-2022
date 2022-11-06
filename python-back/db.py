@@ -23,11 +23,13 @@ users = [
             {
                 'id': 0,
                 'username': 'alice',
+                'description': 'Kuvaus alice',
                 'password': 'pbkdf2:sha256:260000$4ydhhUqIEZMXaRvA$4ac8e3812ffd97fdfd11b20579a977c1b6c9e5bc33c6d19431906fa0a78344db'
             },
             {
                 'id': 1,
                 'username': 'bob',
+                'description': 'Kuvaus bob',
                 'password': 'pbkdf2:sha256:260000$4ydhhUqIEZMXaRvA$4ac8e3812ffd97fdfd11b20579a977c1b6c9e5bc33c6d19431906fa0a78344db'
             }
 
@@ -131,6 +133,11 @@ def get_messages():
       res[other] = [msg]
 
   return res
+
+@app.route("/user_info/<str:username>")
+@jwt_required()
+def get_userinfo(username):
+  return [user for user in users if user["username"] == username][0]["description"]
 
 def identity(payload):
   return payload["identity"]
