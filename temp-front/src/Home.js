@@ -76,7 +76,7 @@ function Home() {
 
       <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
         <Button href="/chat" size="large" variant="outlined">
-          Start chatting
+          Sign up now
         </Button>
       </Box>
 
@@ -125,9 +125,16 @@ function Home() {
       <Box mt={20} />
 
       <Container style={{ width: '100%', display: 'flex' }}>
-        <img src="m1.png" style={{ width: '60%', paddingRight: '50px' }} />
+        <img
+          src="m1.png"
+          style={{
+            alignSelf: 'center',
+            width: '60%',
+            paddingRight: '50px',
+          }}
+        />
         <Box>
-          <Typography style={{ fontWeight: 600, fontSize: '35px' }}>Find other people with similar problems!</Typography>
+          <Typography style={{ fontWeight: 600, fontSize: '35px', paddingBottom: '0.75em' }}>Find other people with similar problems!</Typography>
           <Typography sx={{ color: 'primary.main' }}>
             Max once a day our app connects you to a person with alike issues.
             The chats are anonymous both ways: the threshold for starting a conversation is low!
@@ -141,14 +148,19 @@ function Home() {
 
       <Container style={{ width: '100%', display: 'flex' }}>
         <Box>
-          <Typography style={{ fontWeight: 600, fontSize: '35px', paddingRight: '50px' }}>Create trust through anonym chatting!</Typography>
+          <Typography style={{
+            fontWeight: 600, fontSize: '35px', paddingRight: '50px', paddingBottom: '0.75em',
+          }}
+          >
+            Create trust through anonym chatting!
+          </Typography>
           <Typography sx={{ color: 'primary.main', paddingRight: '50px' }}>
             Discussing your personal issues is hard. We make it easier: your identity
             is hidden! If, however, you truly start trusting the person in the other end you can,
             with both parties agreement, de-anonymize yourselfs!
           </Typography>
         </Box>
-        <img src="m1.png" style={{ width: '60%' }} alt="chat window." />
+        <img src="m1.png" style={{ alignSelf: 'center', width: '60%' }} alt="chat window." />
       </Container>
 
       <Box mt={25} />
