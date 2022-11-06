@@ -3,7 +3,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Box, Container, Typography } from '@mui/system';
+import { Box } from '@mui/system';
 import Footer from './Footer';
 import Navigation from './Navigation';
 
