@@ -49,11 +49,13 @@ import {
   IconButton,
 } from '@mui/material';
 
-import { CompressOutlined } from '@mui/icons-material';
+import { CompressOutlined, FormatListNumbered } from '@mui/icons-material';
 import Page from './Page';
 
 import getMessages from './getMessages';
 import getUserinfo from './getUser';
+
+import NoAccountsIcon from '@mui/icons-material/NoAccounts';
 
 function Chat() {
   const [isConnectionOpen, setConnectionOpen] = React.useState(false);
@@ -125,6 +127,16 @@ function Chat() {
     };
   }, []);
 
+  function formatTime(time) {
+    var date = new Date(time * 1000);
+    // Hours part from the timestamp
+    var hours = date.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + date.getMinutes();
+
+    return hours + ':' + minutes.substr(-2);
+  }
+
   return (
     <Page>
       <Grid
@@ -135,7 +147,7 @@ function Chat() {
         justifyContent="center"
       >
         <Box width="40em" maxWidth="100%">
-          <Card sx={{ width: '100%', marginBottom: '1em', color: 'text.secondary' }}>
+          <Card sx={{ width: '100%', marginBottom: '1em', color: 'secondary.main' }}>
             <Button sx={{ margin: '10px' }} href="/chats" variant="outlined" startIcon={<ArrowBackIcon />}>
               Back to chats
             </Button>
@@ -144,17 +156,25 @@ function Chat() {
             <CardHeader
               avatar={(
                 <Avatar aria-label="recipe">
-                  RS
+                  {receiver.toUpperCase()[0]}
                   {/* FIXME */}
                 </Avatar>
             )}
               action={(
+                <Box>
+                <Button sx={{ margin: '10px'}} variant="outlined" startIcon={<NoAccountsIcon />}>
+                De-Anonymize
+              </Button>
                 <IconButton aria-label="settings">
                   <MoreVertIcon />
                 </IconButton>
+                </Box>
             )}
-              title={receiver}
-              subheader={<i>{userinfo}</i>}
+              title={receiver.split(" ").map((word) => { 
+                return word[0].toUpperCase() + word.substring(1); 
+            }).join(" ")
+            }
+              subheader={<i>{"... "}{userinfo}</i>}
             />
             <CardContent style={{ paddingTop: 0, marginTop: 0 }}>
               <Card style={{
@@ -170,10 +190,11 @@ function Chat() {
                     }}
                   >
                     <Card style={{
-                      minWidth: '10em', maxWidth: '70%', margin: '10px', padding: '3px',
+                      minWidth: '10em', maxWidth: '70%', margin: '10px', padding: '7px',
                     }}
                     >
                       {message.body}
+                      <Box sx={{color:'text.secondary'}}>{formatTime(message.time)}</Box>
                     </Card>
                     {' '}
 
@@ -207,14 +228,7 @@ function Chat() {
 
               </form>
             </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
-              </IconButton>
-              <IconButton aria-label="share">
-                <ShareIcon />
-              </IconButton>
-            </CardActions>
+
           </Card>
         </Box>
       </Grid>

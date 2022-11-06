@@ -44,13 +44,13 @@ function Navigation() {
               maxWidth: '100%', width: '50em', p: 1, bgcolor: 'background.paper', borderRadius: 1,
             }}
           >
-            <Button variant="outlined" sx={{ float:'left', my: 1, mx: 1.5 }}>
+            <Button href="/" variant="outlined" sx={{ float:'left', my: 1, mx: 1.5 }}>
               <Box style={{display:'flex'}}>
                 <Box sx={{ display:'flex', alignItems:'center', width:'1.5em'}}><LogoSvg /></Box>
                 PearSupport
               </Box>
             </Button>
-            <LinkItem name="Home" url="/" />
+            {/* <LinkItem name="Home" url="/" /> */}
             <LinkItem name="Start a chat" url="/chat" />
             <LinkItem name="Chats" url="/chats" />
             <Box sx={{ float: 'right' }}>

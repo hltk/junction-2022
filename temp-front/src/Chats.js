@@ -99,10 +99,12 @@ function Chats() {
 
                     <ListItem alignItems="flex-start" button component="a" href={`/chat/${friend}`}>
                       <ListItemAvatar>
-                        <Avatar alt={friend} src="/static/images/avatar/1.jpg" />
+                        <Avatar src="/static/images/avatar/1.jpg" />
                       </ListItemAvatar>
                       <ListItemText
-                        primary={friend}
+                        primary={friend.split(" ").map((word) => { 
+                          return word[0].toUpperCase() + word.substring(1); 
+                      }).join(" ")}
                         secondary={(
                           <>
                             <Typography
@@ -111,7 +113,9 @@ function Chats() {
                               variant="body2"
                               color="text.primary"
                             >
-                              {messages[friend].slice(-1)[0].sender === myName ? 'you' : messages[friend].slice(-1)[0].sender}
+                              {messages[friend].slice(-1)[0].sender === myName ? <i>you</i> : messages[friend].slice(-1)[0].sender.split(" ").map((word) => { 
+                          return word[0].toUpperCase() + word.substring(1); 
+                      }).join(" ")}
                             </Typography>
                             {" — "}
                             {messages[friend].slice(-1)[0].body}
