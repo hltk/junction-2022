@@ -7,21 +7,20 @@ import Container from '@mui/material/Container';
 const footers = [
   {
     title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
+    description: ['Team', 'About us', 'Contact us', 'Locations'],
   },
   {
     title: 'Features',
     description: [
-      'Cool stuff',
-      'Random feature',
-      'Team feature',
-      'Developer stuff',
-      'Another one',
+      'End-to-end encryption',
+      'Simple design',
+      'For developers ',
+      'Technologies',
     ],
   },
   {
     title: 'Resources',
-    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
+    description: ['Support', 'Security', 'Blog', 'Feedback'],
   },
   {
     title: 'Legal',

@@ -68,8 +68,7 @@ function Chats() {
                       >
                         {messages[friend].slice(-1)[0].sender === myName ? "you" : messages[friend].slice(-1)[0].sender}
                       </Typography>
-                      {" — "}
-                      {messages[friend].slice(-1)[0].body}
+                      {" — I'll be in your neighborhood doing errands this…"}
                     </>
           )}
                 />
