@@ -7,6 +7,8 @@ import Grid from '@mui/material/Grid';
 
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
+
+import Link from '@mui/material/Link';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
@@ -21,12 +23,14 @@ import Page from './Page';
 import getMessages from './getMessages';
 
 function Chats() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState({});
 
   useEffect(() => {
     const { token } = JSON.parse(window.localStorage.getItem('user'));
     getMessages(token).then((res) => setMessages(res.data));
   }, []);
+  
+  const myName = JSON.parse(window.localStorage.getItem('user')).username;
 
   return (
     <Page>
@@ -45,12 +49,15 @@ function Chats() {
 
             <Divider />
             <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-              <ListItem alignItems="flex-start">
+              {
+                Object.keys(messages).map((friend) => <Box key={friend}>
+              
+              <ListItem alignItems="flex-start" button component={"a"} href={`/chat/${friend}`}>
                 <ListItemAvatar>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                  <Avatar alt={friend} src="/static/images/avatar/1.jpg" />
                 </ListItemAvatar>
                 <ListItemText
-                  primary="Brunch this weekend?"
+                  primary={friend}
                   secondary={(
                     <>
                       <Typography
@@ -59,57 +66,15 @@ function Chats() {
                         variant="body2"
                         color="text.primary"
                       >
-                        Ali Connors
+                        {messages[friend].slice(-1)[0].sender === myName ? "you" : messages[friend].slice(-1)[0].sender}
                       </Typography>
-                      {" — I'll be in your neighborhood doing errands this…"}
+                      {" — "}
+                      {messages[friend].slice(-1)[0].body}
                     </>
           )}
                 />
               </ListItem>
-              <Divider variant="inset" component="li" />
-              <ListItem alignItems="flex-start">
-                <ListItemAvatar>
-                  <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-                </ListItemAvatar>
-                <ListItemText
-                  primary="Summer BBQ"
-                  secondary={(
-                    <>
-                      <Typography
-                        sx={{ display: 'inline' }}
-                        component="span"
-                        variant="body2"
-                        color="text.primary"
-                      >
-                        to Scott, Alex, Jennifer
-                      </Typography>
-                      {" — Wish I could come, but I'm out of town this…"}
-                    </>
-          )}
-                />
-              </ListItem>
-              <Divider variant="inset" component="li" />
-              <ListItem alignItems="flex-start">
-                <ListItemAvatar>
-                  <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-                </ListItemAvatar>
-                <ListItemText
-                  primary="Oui Oui"
-                  secondary={(
-                    <>
-                      <Typography
-                        sx={{ display: 'inline' }}
-                        component="span"
-                        variant="body2"
-                        color="text.primary"
-                      >
-                        Sandra Adams
-                      </Typography>
-                      {' — Do you have Paris recommendations? Have you ever…'}
-                    </>
-          )}
-                />
-              </ListItem>
+              <Divider variant="inset" component="li" /></Box>)}
             </List>
           </Card>
         </Box>
