@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Button, TextField, Box, Avatar, Typography, FormControlLabel, Grid, Link, Checkbox,
 } from '@mui/material';
@@ -11,11 +12,14 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const login = async () => {
+  const navigate = useNavigate();
+
+  const login = async (e) => {
+    e.preventDefault();
     const resp = await axios.post('http://localhost:5000/auth', { username, password });
 
     window.localStorage.setItem('user', JSON.stringify({ username, token: resp.data.access_token }));
-    console.log(window.localStorage);
+    navigate('/');
   };
 
   return (
@@ -64,8 +68,8 @@ function Login() {
             label="Remember me"
           />
           <Button
-            type="button"
-            onClick={() => login()}
+            type="submit"
+            onClick={login}
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
