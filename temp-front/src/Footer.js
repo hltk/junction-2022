@@ -30,9 +30,10 @@ const footers = [
 
 function Copyright(props) {
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit">
+      <Link color="inherit" href="/">
         PearSupport
       </Link>
       {' '}
@@ -61,7 +62,7 @@ function Footer() {
             <ul style={{ paddingLeft: 0 }}>
               {footer.description.map((item) => (
                 <li style={{ listStyle: 'none' }} key={item}>
-                  <Link href="#" variant="subtitle1" color="text.secondary">
+                  <Link href="/" variant="subtitle1" color="text.secondary">
                     {item}
                   </Link>
                 </li>

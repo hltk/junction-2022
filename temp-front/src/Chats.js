@@ -36,7 +36,6 @@ function Chats() {
       const today = new Date();
       const Christmas = new Date(`${today.getFullYear()}-12-25`);
       const diffMs = (Christmas - today); // milliseconds between now & Christmas
-      const diffDays = Math.floor(diffMs / 86400000); // days
       const diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
       const diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
       const diffSeconds = Math.round(((diffMs % 86400000) % (3600000 / 60)) / (1000)); // Seconds

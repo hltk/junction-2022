@@ -27,16 +27,11 @@ function Navigation() {
         position="static"
         color="default"
         alignitems="center"
-
         elevation={0}
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
 
       >
         <Toolbar sx={{ justifyContent: 'center', width: '100%' }}>
-          { /* <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-                    Company name
-                </Typography> */ }
-
           <Box
             sx={{
               maxWidth: '100%', width: '50em', p: 1, bgcolor: 'background.paper', borderRadius: 1,
