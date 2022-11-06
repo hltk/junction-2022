@@ -23,12 +23,12 @@ const cards = [
   {
     reason: 'Secure',
     image: 'l.png',
-    explanation: 'End-to-end encyption.',
+    explanation: 'Bleeding-edge techonologies. End-to-end encyption. We got it all.',
   },
   {
     reason: 'Simple',
     image: 's.png',
-    explanation: 'You know how to use before even starting!',
+    explanation: 'We aim to eliminate all distractions!',
   },
   {
     reason: 'Anonymous',
@@ -42,7 +42,7 @@ const cards = [
   {
     reason: 'Easy-to-relate',
     image: 'p.png',
-    explanation: 'You get to talk to people with similar problems.',
+    explanation: 'You get to talk to people who struggle with similar subjects.',
   }, {
     reason: 'Fast',
     image: 'h.png',
@@ -139,10 +139,10 @@ function Home() {
         <Box>
           <Typography style={{ fontWeight: 600, fontSize: '35px', paddingBottom: '0.75em' }}>Find other people with similar problems!</Typography>
           <Typography sx={{ color: 'primary.main' }}>
-            Max once a day our app connects you to a person with alike issues.
-            The chats are anonymous both ways: the threshold for starting a conversation is low!
-            Though the issues are the defining feature, your conversations are of course not
-            limited to those.
+            Once a day, our platform connects you to a person with alike issues.
+            The messaging is anonymous both ways, whichs makes the threshold for starting a conversation low!
+            Even though you started from a shared trouble, the topic of conversation is, by no means,
+            limited to that.
           </Typography>
         </Box>
       </Container>
@@ -155,12 +155,12 @@ function Home() {
             fontWeight: 600, fontSize: '35px', paddingRight: '50px', paddingBottom: '0.75em',
           }}
           >
-            Create trust through anonym chatting!
+            Build trust through anonym chatting!
           </Typography>
           <Typography sx={{ color: 'primary.main', paddingRight: '50px' }}>
-            Discussing your personal issues is hard. We make it easier: your identity
-            is hidden! If, however, you truly start trusting the person in the other end you can,
-            with both parties agreement, de-anonymize yourselfs!
+            Discussing personal issues is hard. We are here to make it easier: your identity
+            is hidden! If, however, you truly start to trust the person in the other end, you can –
+            with both parties' agreement – de-anonymize yourselfs!
           </Typography>
         </Box>
         <img src="m1.png" style={{ alignSelf: 'center', width: '30vw' }} alt="chat window." />
