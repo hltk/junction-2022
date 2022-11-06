@@ -42,6 +42,7 @@ function NewChat() {
 
   return (
     <Page>
+
       <Grid
         container
         spacing={0}
